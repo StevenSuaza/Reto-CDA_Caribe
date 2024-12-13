@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Agenda tu revisión técnico-mecánica para motos con CDA Caribe Motos. Inspección rápida y profesional.">
+    <title>Revisión Técnico Mecánica | CDA Caribe Motos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">CDA Caribe Motos</div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#cita">Agendar Cita</a></li>
+                <li><a href="#faq">Preguntas Frecuentes</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="banner">
+        <h1>Revisión Técnico Mecánica para tu Moto</h1>
+        <p>Rápido, seguro y con certificación oficial.</p>
+        <a href="#cita" class="btn">Agendar Cita</a>
+    </section>
+
+    <section id="servicios" class="services">
+        <h2>Servicios</h2>
+        <ul>
+            <li>Revisión técnico-mecánica completa</li>
+            <li>Diagnóstico de frenos, luces y sistema eléctrico</li>
+            <li>Certificación oficial</li>
+            <li>Mantenimiento preventivo</li>
+        </ul>
+    </section>
+
+    <section id="cita" class="appointment">
+        <h2>Agendar Cita</h2>
+        <form id="citaForm">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+    
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" required>
+    
+            <label for="modelo">Modelo de Moto:</label>
+            <input type="text" id="modelo" name="modelo" required>
+    
+            <label for="fecha">Fecha deseada:</label>
+            <input type="date" id="fecha" name="fecha" required>
+    
+            <button type="submit">Enviar</button>
+        </form>
+        <p id="mensaje"></p> <!-- Para mostrar mensajes de éxito o error -->
+    </section>
+
+    <section id="faq" class="faq">
+        <h2>Preguntas Frecuentes</h2>
+        <div class="question">
+            <h3>¿Cuánto tiempo toma la revisión?</h3>
+            <p>Por lo general, la revisión toma entre 30 y 45 minutos.</p>
+        </div>
+        <div class="question">
+            <h3>¿Qué documentos necesito traer?</h3>
+            <p>Es necesario presentar tu cédula, tarjeta de propiedad y SOAT vigente.</p>
+        </div>
+    </section>
+
+    <section id="contacto" class="contact">
+        <h2>Contacto</h2>
+        <p>Visítanos en: Cra. 64c #75-40, Medellín, Antioquia. A una cuadra del tránsito de Caríbe</p>
+        <p>Teléfono: <a href="tel:+573001234567">+57 321 746 11 79</a></p>
+        <p>Email: <a href="mailto:info@cdacaribemotos.com">info@cdacaribemotos.com</a></p>
+        <div id="mapa">
+            <iframe loading="lazy" src="https://maps.google.com/maps?q=cda%20caribe%20motos&amp;t=m&amp;z=15&amp;output=embed&amp;iwloc=near" title="cda caribe motos" aria-label="cda caribe motos"></iframe>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 CDA Caribe Motos. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Escuchar el evento submit del formulario
+        document.getElementById('citaForm').addEventListener('submit', async (e) => {
+            e.preventDefault(); // Evita el envío estándar del formulario
+    
+            // Obtener los datos del formulario
+            const formData = {
+                nombre: document.getElementById('nombre').value,
+                telefono: document.getElementById('telefono').value,
+                modelo: document.getElementById('modelo').value,
+                fecha: document.getElementById('fecha').value
+            };
+    
+            try {
+                // Enviar los datos al servidor usando fetch
+                const response = await fetch('http://localhost:3000/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+    
+                // Manejar la respuesta del servidor
+                const result = await response.text();
+                document.getElementById('mensaje').textContent = result;
+    
+                if (response.ok) {
+                    document.getElementById('mensaje').style.color = 'green';
+                } else {
+                    document.getElementById('mensaje').style.color = 'red';
+                }
+            } catch (error) {
+                console.error('Error al enviar los datos:', error);
+                document.getElementById('mensaje').textContent = 'Error al enviar los datos.';
+                document.getElementById('mensaje').style.color = 'red';
+            }
+        });
+    </script>
+
+<script type="text/javascript">
+    (function(d, t) {
+        var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        v.onload = function() {
+          window.voiceflow.chat.load({
+            verify: { projectID: '675905a1c6b24ff3dc3352ad' },
+            url: 'https://general-runtime.voiceflow.com',
+            versionID: 'production'
+          });
+        }
+        v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+    })(document, 'script');
+  </script>
+</body>
+</html>

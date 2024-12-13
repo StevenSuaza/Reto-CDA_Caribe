@@ -1,0 +1,129 @@
+/* Base Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+header {
+    background-color: #002f6c;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.banner {
+    background-color: #004aad;
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.banner .btn {
+    display: inline-block;
+    background-color: #ffa500;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
+.services {
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.services h2 {
+    color: #002f6c;
+}
+
+.services ul {
+    list-style: square;
+    padding-left: 20px;
+}
+
+.appointment {
+    padding: 20px;
+}
+
+.appointment h2 {
+    color: #002f6c;
+}
+
+.appointment form {
+    display: grid;
+    gap: 10px;
+    max-width: 400px;
+    margin: auto;
+}
+
+.appointment form label {
+    font-weight: bold;
+}
+
+.appointment form input, .appointment form button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.appointment form button {
+    background-color: #004aad;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.faq {
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.faq h2 {
+    color: #002f6c;
+}
+
+.contact {
+    padding: 20px;
+}
+
+.contact h2 {
+    color: #002f6c;
+}
+
+#mapa iframe {
+    width: 100%;
+}
+
+footer {
+    background-color: #002f6c;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
